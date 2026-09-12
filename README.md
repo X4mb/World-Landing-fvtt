@@ -2,6 +2,18 @@
 
 Pick a scene to auto-activate whenever the world starts, so players always land somewhere intentional (a title card, hub, or menu scene) instead of wherever the last session happened to leave off.
 
+## Installation
+
+**Manifest URL (recommended):** In Foundry's setup screen, go to **Add-on Modules** → **Install Module**, paste this into the **Manifest URL** field, and click Install:
+
+```
+https://github.com/x4mb/World-Landing-whfrp4e/releases/latest/download/module.json
+```
+
+**Manual install:** Download `module.zip` from the [latest release](https://github.com/x4mb/World-Landing-whfrp4e/releases/latest), unzip it into your Foundry `Data/modules/` folder (so you end up with `Data/modules/world-landing-whfrp4e/`), then restart Foundry.
+
+Either way, enable **World Landing** from your world's **Manage Modules** screen afterward.
+
 ## Usage
 
 1. In the Scenes sidebar, right-click the scene you want as your landing scene.
