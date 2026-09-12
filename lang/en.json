@@ -1,0 +1,8 @@
+{
+  "WORLDLANDING": {
+    "ContextSet": "Set as Default Scene",
+    "ContextUnset": "Unset Default Scene",
+    "SetNotification": "{name} will now load automatically when the world starts.",
+    "UnsetNotification": "Default landing scene cleared."
+  }
+}
