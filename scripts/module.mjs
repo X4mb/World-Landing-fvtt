@@ -1,4 +1,4 @@
-const MODULE_ID = "world-landing-whfrp4e";
+const MODULE_ID = "world-landing-fvtt";
 const SETTING_DEFAULT_SCENE = "defaultSceneId";
 const SETTING_LAST_BOOT = "lastBootEpoch";
 

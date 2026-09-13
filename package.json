@@ -1,6 +1,6 @@
 {
-  "name": "world-landing-whfrp4e",
-  "version": "1.0.0",
+  "name": "world-landing-fvtt",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Foundry VTT module: pick a default landing scene that activates on world start.",

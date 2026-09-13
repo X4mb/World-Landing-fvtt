@@ -4,15 +4,15 @@ Pick a scene to auto-activate whenever the world starts, so players always land 
 
 ## Installation
 
-> **This module hasn't been merged to `main` or released yet.** `manifest` in `module.json` currently points at the dev branch (`claude/warhammer-fvtt-default-scene-ch6zl5`) so it can be tested; it should be updated to point at `main` once this lands there. No `vX.Y.Z` tag has been pushed either, so there's no `module.zip` yet — manifest-URL install will fetch metadata fine but fail on the download step until one exists. Use the manual install below in the meantime.
+> **This module hasn't been merged to `main` yet.** `manifest` in `module.json` currently points at the dev branch (`claude/warhammer-fvtt-default-scene-ch6zl5`) so it can be tested; it should be updated to point at `main` once this lands there.
 
-**Manifest URL** (works for metadata now; the download step needs a release, see above): In Foundry's setup screen, go to **Add-on Modules** → **Install Module**, paste this into the **Manifest URL** field, and click Install:
+**Manifest URL:** In Foundry's setup screen, go to **Add-on Modules** → **Install Module**, paste this into the **Manifest URL** field, and click Install:
 
 ```
-https://raw.githubusercontent.com/x4mb/World-Landing-whfrp4e/claude/warhammer-fvtt-default-scene-ch6zl5/module.json
+https://raw.githubusercontent.com/x4mb/World-Landing-fvtt/claude/warhammer-fvtt-default-scene-ch6zl5/module.json
 ```
 
-**Manual install (works today):** Clone or download this repository and place its contents directly in a `world-landing-whfrp4e` folder under your Foundry `Data/modules/` directory, so you end up with `Data/modules/world-landing-whfrp4e/module.json`, then restart Foundry.
+**Manual install:** Clone or download this repository and place its contents directly in a `world-landing-fvtt` folder under your Foundry `Data/modules/` directory, so you end up with `Data/modules/world-landing-fvtt/module.json`, then restart Foundry.
 
 Either way, enable **World Landing** from your world's **Manage Modules** screen afterward.
 
@@ -24,7 +24,7 @@ Once a release exists, `download` in `module.json` will resolve automatically (i
 2. Choose **Set as Default Scene**.
 3. That scene will be activated automatically the next time the world boots (right-click it again and choose **Unset Default Scene** to remove it).
 
-GM only. System-agnostic — built and tested against Foundry v14+ in a WFRP4e world, but has no WFRP4e-specific logic.
+GM only. System-agnostic — works with any Foundry v14+ game system.
 
 ## How "world start" is detected
 
