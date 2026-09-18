@@ -15,6 +15,7 @@ export default [
         CONFIG: "readonly",
         window: "readonly",
         document: "readonly",
+        HTMLElement: "readonly",
         console: "readonly",
         fetch: "readonly"
       }

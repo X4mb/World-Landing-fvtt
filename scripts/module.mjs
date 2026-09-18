@@ -1,6 +1,8 @@
 const MODULE_ID = "world-landing-fvtt";
 const SETTING_DEFAULT_SCENE = "defaultSceneId";
 const SETTING_LAST_BOOT = "lastBootEpoch";
+const SETTING_DEFAULT_SCENE_INFO = "defaultSceneInfo";
+const DEFAULT_SCENE_BADGE_CLASS = "world-landing-default";
 
 // If the server-reported boot time differs from what we last saw by more
 // than this, treat it as a genuine restart rather than clock/network jitter.
@@ -8,6 +10,18 @@ const BOOT_TOLERANCE_MS = 15000;
 
 function log(...args) {
   console.log(`${MODULE_ID} |`, ...args);
+}
+
+// Render hooks hand us either an HTMLElement (ApplicationV2) or a jQuery
+// wrapper (legacy Application), depending on Foundry version.
+function toElement(html) {
+  return html instanceof HTMLElement ? html : html[0];
+}
+
+function defaultSceneName() {
+  const sceneId = game.settings.get(MODULE_ID, SETTING_DEFAULT_SCENE);
+  if (!sceneId) return null;
+  return game.scenes.get(sceneId)?.name ?? null;
 }
 
 Hooks.once("init", () => {
@@ -23,6 +37,23 @@ Hooks.once("init", () => {
     type: Number,
     default: 0
   });
+  // Informational only: displayed read-only in the settings form via the
+  // renderSettingsConfig hook below, never actually written to.
+  game.settings.register(MODULE_ID, SETTING_DEFAULT_SCENE_INFO, {
+    name: "WORLDLANDING.CurrentDefaultSceneName",
+    hint: "WORLDLANDING.CurrentDefaultSceneHint",
+    scope: "world",
+    config: true,
+    type: String,
+    default: ""
+  });
+});
+
+Hooks.on("renderSettingsConfig", (_app, html) => {
+  const input = toElement(html).querySelector(`[name="${MODULE_ID}.${SETTING_DEFAULT_SCENE_INFO}"]`);
+  if (!input) return;
+  input.value = defaultSceneName() ?? game.i18n.localize("WORLDLANDING.NoDefaultScene");
+  input.disabled = true;
 });
 
 function getSceneIdFromRow(li) {
@@ -40,11 +71,13 @@ async function setDefaultScene(li) {
   await game.settings.set(MODULE_ID, SETTING_DEFAULT_SCENE, sceneId);
   const scene = game.scenes.get(sceneId);
   ui.notifications.info(game.i18n.format("WORLDLANDING.SetNotification", { name: scene?.name ?? sceneId }));
+  ui.scenes?.render();
 }
 
 async function clearDefaultScene() {
   await game.settings.set(MODULE_ID, SETTING_DEFAULT_SCENE, "");
   ui.notifications.info(game.i18n.localize("WORLDLANDING.UnsetNotification"));
+  ui.scenes?.render();
 }
 
 function addSceneContextOptions(_application, options) {
@@ -69,6 +102,17 @@ function addSceneContextOptions(_application, options) {
 // uses it instead.
 Hooks.on("getSceneContextOptions", addSceneContextOptions);
 Hooks.on("getSceneDirectoryEntryContext", addSceneContextOptions);
+
+function refreshDefaultSceneBadges(html) {
+  const sceneId = game.settings.get(MODULE_ID, SETTING_DEFAULT_SCENE);
+  const rows = toElement(html).querySelectorAll("[data-document-id], [data-entry-id], [data-scene-id]");
+  for (const li of rows) {
+    const isDefault = !!sceneId && getSceneIdFromRow(li) === sceneId;
+    li.classList.toggle(DEFAULT_SCENE_BADGE_CLASS, isDefault);
+  }
+}
+
+Hooks.on("renderSceneDirectory", (_app, html) => refreshDefaultSceneBadges(html));
 
 /**
  * There is no client hook for "the world process just booted" as distinct

@@ -32,6 +32,12 @@ for (const path of manifest.esmodules ?? []) {
   }
 }
 
+for (const path of manifest.styles ?? []) {
+  if (!existsSync(new URL(`../${path}`, import.meta.url))) {
+    fail(`stylesheet "${path}" referenced in module.json does not exist`);
+  }
+}
+
 for (const lang of manifest.languages ?? []) {
   if (!existsSync(new URL(`../${lang.path}`, import.meta.url))) {
     fail(`language file "${lang.path}" referenced in module.json does not exist`);

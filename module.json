@@ -2,7 +2,7 @@
   "id": "world-landing-fvtt",
   "title": "World Landing",
   "description": "Pick a scene to auto-activate whenever the world starts, for a landing page.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -16,6 +16,9 @@
   "esmodules": [
     "scripts/module.mjs"
   ],
+  "styles": [
+    "styles/world-landing.css"
+  ],
   "languages": [
     {
       "lang": "en",
@@ -25,7 +28,7 @@
   ],
   "url": "https://github.com/x4mb/World-Landing-fvtt",
   "manifest": "https://raw.githubusercontent.com/x4mb/World-Landing-fvtt/main/module.json",
-  "download": "https://github.com/x4mb/World-Landing-fvtt/releases/download/v1.0.1/module.zip",
+  "download": "https://github.com/x4mb/World-Landing-fvtt/releases/download/v1.1.0/module.zip",
   "readme": "https://github.com/x4mb/World-Landing-fvtt/blob/main/README.md",
   "bugs": "https://github.com/x4mb/World-Landing-fvtt/issues",
   "license": "LICENSE"

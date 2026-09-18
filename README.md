@@ -22,6 +22,8 @@ Either way, enable **World Landing** from your world's **Manage Modules** screen
 2. Choose **Set as Default Scene**.
 3. That scene will be activated automatically the next time the world boots (right-click it again and choose **Unset Default Scene** to remove it).
 
+The current default scene shows a small house badge in the Scenes directory, and is also listed (read-only) under this module's entry in **Configure Settings**.
+
 GM only. System-agnostic — works with any Foundry v14+ game system.
 
 ## How "world start" is detected

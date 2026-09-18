@@ -33,7 +33,7 @@ jobs:
       - name: Package module
         run: |
           mkdir -p dist
-          zip -r dist/module.zip module.json scripts lang LICENSE README.md
+          zip -r dist/module.zip module.json scripts styles lang LICENSE README.md
 
       - name: Create release
         uses: softprops/action-gh-release@v2

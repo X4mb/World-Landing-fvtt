@@ -3,6 +3,9 @@
     "ContextSet": "Set as Default Scene",
     "ContextUnset": "Unset Default Scene",
     "SetNotification": "{name} will now load automatically when the world starts.",
-    "UnsetNotification": "Default landing scene cleared."
+    "UnsetNotification": "Default landing scene cleared.",
+    "CurrentDefaultSceneName": "Current Default Scene",
+    "CurrentDefaultSceneHint": "Read-only. Right-click a scene in the Scenes directory to change it.",
+    "NoDefaultScene": "None set"
   }
 }
