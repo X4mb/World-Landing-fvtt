@@ -4,19 +4,17 @@ Pick a scene to auto-activate whenever the world starts, so players always land 
 
 ## Installation
 
-> **This module hasn't been merged to `main` yet.** `manifest` in `module.json` currently points at the dev branch (`claude/warhammer-fvtt-default-scene-ch6zl5`) so it can be tested; it should be updated to point at `main` once this lands there.
-
 **Manifest URL:** In Foundry's setup screen, go to **Add-on Modules** → **Install Module**, paste this into the **Manifest URL** field, and click Install:
 
 ```
-https://raw.githubusercontent.com/x4mb/World-Landing-fvtt/claude/warhammer-fvtt-default-scene-ch6zl5/module.json
+https://raw.githubusercontent.com/x4mb/World-Landing-fvtt/main/module.json
 ```
 
 **Manual install:** Clone or download this repository and place its contents directly in a `world-landing-fvtt` folder under your Foundry `Data/modules/` directory, so you end up with `Data/modules/world-landing-fvtt/module.json`, then restart Foundry.
 
 Either way, enable **World Landing** from your world's **Manage Modules** screen afterward.
 
-Once a release exists, `download` in `module.json` will resolve automatically (it's set per-release by the CI workflow) and manifest-URL install will work end-to-end.
+`download` in `module.json` is set per-release by the CI workflow, so manifest-URL install picks up the latest tagged release automatically.
 
 ## Usage
 
