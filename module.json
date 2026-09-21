@@ -1,7 +1,7 @@
 {
   "id": "world-landing-fvtt",
   "title": "World Landing",
-  "description": "Pick a scene to auto-activate whenever the world starts, for a landing page.",
+  "description": "Automatically activates a chosen scene when the world starts.",
   "version": "1.1.0",
   "compatibility": {
     "minimum": "14",

@@ -1,6 +1,6 @@
 # World Landing
 
-Pick a scene to auto-activate whenever the world starts, so players always land somewhere intentional (a title card, hub, or menu scene) instead of wherever the last session happened to leave off.
+Automatically activates a chosen scene when the world starts.
 
 ## Installation
 
